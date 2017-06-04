@@ -1,0 +1,80 @@
+ .painel-animado {
+    -moz-transition:transform 0.8s;
+    -webkit-transition:transform 0.8s;
+    -ms-transition:transform 0.8s;
+    -o-transition:transform 0.8s;
+    transition:transform 0.8s;
+}
+
+.painel-animado.ng-leave-active {
+  -moz-transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  transform: scale(0.1);
+}
+h1 {
+  text-transform: uppercase;
+}
+.rodape-pagina {
+    background-color: #e6e6e6;
+    color: black;
+    padding: 20px;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-position: 99% center;
+    background-repeat: no-repeat;
+}
+textarea {
+    resize: none;
+}
+.text-center {
+    text-align:center;
+}
+.btn-right {
+    float: right;
+}
+.painel-cap {
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding-bottom: 10px;
+    
+}
+div{   
+    word-wrap: break-word;
+}
+.row-centered {
+    text-align:center;
+}
+.col-centered { 
+    display:inline-block; 
+    float:none; 
+    margin-right:-4px;
+}
+.footer {
+    width:100%; 
+    float:left; 
+    background:#333; 
+    z-index:-9999;
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+}
+.centeredPanel{
+    width:25%;
+    height:25%;
+    min-width:100px;
+    min-height:100px;
+    position:absolute;
+    left:50%;
+    top:50%;
+}​
+.center1 {
+    float: right;
+}
+

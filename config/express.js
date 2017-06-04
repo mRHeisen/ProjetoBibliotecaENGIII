@@ -18,7 +18,6 @@ app.use(bodyParser.json());
 consign({ cwd : 'app'})
 	.include('models')
 	.then('api')
-	.then('routes/auth.js') // garante que o modulo auth seja carregado antes de todas as rotas
 	.then('routes')
 	.into(app);
 

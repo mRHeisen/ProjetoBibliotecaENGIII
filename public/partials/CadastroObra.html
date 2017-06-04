@@ -1,0 +1,62 @@
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Título</label>
+			<input ng-maxlength="30" name="titulo" class="form-control" ng-model="obra.titulo" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+				class="form-control alert-danger">
+				Título obrigatório
+			</span>
+			<span ng-show="formulario.titulo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 30 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Autor</label>
+			<select name="autor" ng-model="obra.autor" class="form-control" 
+					required ng-controller="AutorController" 
+					ng-options="autor.nome as (autor.nome | uppercase) for autor in autores">
+				<option value="">Escolha um Autor</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.genero.$error.required" 
+				class="form-control alert-danger">
+				Autor obrigatório
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Gênero</label>
+			<select name="genero" ng-model="obra.genero" class="form-control" 
+					required ng-controller="GeneroController" 
+					ng-options="genero.nome as (genero.nome | uppercase) for genero in generos">
+				<option value="">Escolha um Gênero</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.genero.$error.required" 
+				class="form-control alert-danger">
+				Genero obrigatório
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Editora</label>
+			<select name="editora" ng-model="obra.editora" class="form-control" 
+					required ng-controller="EditoraController" 
+					ng-options="editora.nome as (editora.nome | uppercase) for editora in editoras">
+				<option value="">Escolha uma Editora</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.genero.$error.required" 
+				class="form-control alert-danger">
+				Editora obrigatório
+			</span>
+		</div>
+
+		<button type="submit" href="/#/lista" class="btn btn-primary" ng-disabled="formulario.$invalid">
+			Salvar
+		</button>
+		<a href="/#/lista" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+</form>
+</div>
