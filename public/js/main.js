@@ -7,7 +7,7 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 		});
 
 		$routeProvider.when('/obras', {
-			templateUrl: 'partials/views/listaObra.html',
+			templateUrl: 'partials/views/ListaObra.html',
 			controller: 'ListaObrasController'
 		});
 
