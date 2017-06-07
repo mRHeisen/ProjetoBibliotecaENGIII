@@ -15,7 +15,8 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 //Carrega todas arquivos que tem em models/api/routes e passa como parametro a instancia app com express configurado
 // cwd diretorio pradao do consign
-consign({ cwd : 'app'})
+consign({cwd: process.cwd()+"/app"})
+//consign({ cwd : 'app'})
 	.include('models')
 	.then('api')
 	.then('routes')
