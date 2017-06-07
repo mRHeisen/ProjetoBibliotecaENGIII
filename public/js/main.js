@@ -3,14 +3,19 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 
 		$routeProvider.when('/newobra', {
 			templateUrl: 'partials/formularios/CadastroObra.html',
-			controller: 'CadastroObraController'
+			controller: 'ObraController'
 		});
 
 		$routeProvider.when('/obras', {
 			templateUrl: 'partials/views/ListaObra.html',
-			controller: 'CadastroObraController'
+			controller: 'ListaObrasController'
 		});
 
+		$routeProvider.when('/obras/edit/:obraId', {
+			templateUrl: 'partials/formularios/CadastroObra.html',
+			controller: 'ObraController'
+		});
+		
 		$routeProvider.when('/neweditora', {
 			templateUrl: 'partials/formularios/CadastroEditora.html',
 			controller: 'EditoraController'

@@ -8,5 +8,7 @@ module.exports = function(app){
 
     //Define o indentificador da rota em um unico lugar
      app.route('/v1/obra/:id')
-     	.delete(api.removePorId) //Remove pelo id da historias
+     	.get(api.buscaPorId) //Buscar obra pelo id
+        .delete(api.removePorId) //Remove pelo id da obra
+        .put(api.atualiza) //Atuliza obra pelo id
 };

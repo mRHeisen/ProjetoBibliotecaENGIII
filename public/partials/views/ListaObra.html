@@ -1,13 +1,15 @@
 <div ng-include="'/partials/menus/menuOperador.html'"></div>
 <div style="margin-left: 6cm;">
-	<h3>Lista de Obras: </h3>
+
 <div class="panel-body table-responsive">
+		<h3>Lista de Obras: </h3> <input class="form-control col-md-3" placeholder="Filtro" ng-model="filtro" ng-model-options="{ debounce: 500 }">
     <table class="table table-striped">
       <thead>
         <tr>
           <th>Titulo</th>
           <th>Autor</th>
           <th>Genero</th>
+          <th>Editora</th>
           <th class="text-right">Ações</th>
         </tr>
       </thead>
@@ -16,10 +18,11 @@
           <td>{{obras.titulo}}</td>
           <td>{{obras.autor}}</td>
           <td>{{obras.genero}}</td>
+          <td>{{obras.editora}}</td>
           <td>
             <div class="btn-group pull-right nowrap">
-              <a class="btn btn-primary btn-md" ng-click="editar(promocao.id)"><span class="fa icon-edit"></span> </a>
-              <a class="btn btn-danger btn-md" ng-click="excluir(promocao.id)"><span class="fa icon-trash"></span> </a>
+              <a class="btn btn-primary btn-md" href="/#/obras/edit/{{obras._id}}"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="remover(obras)"><span class="fa icon-trash"></span> </a>
             </div>
           </td>
         </tr>

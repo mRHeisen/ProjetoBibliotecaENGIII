@@ -3,14 +3,6 @@ angular.module('biblioteca').controller('GeneroController', function($scope, $ht
 	$scope.mensagem = '';
 	$scope.genero = {};
 
-		$http.get('/v1/genero')
-			.success(function(generos) {
-			$scope.generos = generos;
-		})
-		.error(function(erro) {
-			console.log(erro);
-		});
-
 	cadastrar = function(genero) {
 		cadastroDeGenero.cadastrar(genero)
 			.then(function(dados) {

@@ -166,7 +166,7 @@ angular.module('meusServicos', ['ngResource'])
 						});
 					});
 
-				} else {
+				} else {;
 					recursoObra.save(obra, function() {
 						resolve({
 							mensagem: 'Obra ' + obra.titulo + ' incluída com sucesso',

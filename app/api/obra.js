@@ -54,4 +54,40 @@ api.removePorId = function(req, res){
 		});
 
 };
+api.buscaPorId = function(req, res){
+	//Usa funçao do mongoose(findById) para procura pelo id que é passado em req.params.id pega o id
+	model
+		.findById(req.params.id)
+		.then(function(obra){
+			console.log(obra);
+			//Se obra nao existis executa if e termina o fluxo e vai para função de error
+			if(!obra) throw Error('Obra não encontrada');
+			res.json(obra);
+		}, function(error){
+			//Mostra o erro no console
+			console.log(error);
+			//Manda o status 404 na requisição e o erro em json
+			res.status(404).json(error);
+		});
+
+
+};
+api.atualiza = function(req, res){
+	//Usa funçao do mongoose (findByIdAndUpdate) para procura pelo id que for passa e atulizar o mesmo documento no
+	//MongoDB
+	obra = req.body;
+	console.log(obra);
+	model
+		.findByIdAndUpdate(req.params.id, obra)
+		.then(function(obra){ 
+			//Manda a obra atualizada
+			res.json(obra);
+		}, function(error){
+			//Mostra o erro no console
+			console.log(error);
+			//Manda o status 500 na requisição e o erro em json
+			res.status(500).json(error);
+		});
+
+};
 module.exports = api;

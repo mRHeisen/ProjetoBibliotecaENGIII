@@ -3,14 +3,6 @@ angular.module('biblioteca').controller('EditoraController', function($scope, $h
 	$scope.mensagem = '';
 	$scope.editora = {};
 
-	$http.get('/v1/editora')
-			.success(function(editora) {
-			$scope.editoras = editora;
-		})
-		.error(function(erro) {
-			console.log(erro);
-		});
-
 	cadastrar = function(editora) {
 			cadastroDeEditora.cadastrar(editora)
 				.then(function(dados) {

@@ -19,8 +19,7 @@
 		</div>
 		<div class="form-group">
 			<label>Autor:</label>
-			<select name="autor" ng-model="obra.autor" class="form-control" 
-					required ng-controller="AutorController" 
+			<select name="autor" ng-model="obra.autor" class="form-control"  
 					ng-options="autor.nome as (autor.nome | uppercase) for autor in autores">
 				<option value="">Escolha um Autor</option>
 			</select>
@@ -32,7 +31,6 @@
 		<div class="form-group">
 			<label>Gênero:</label>
 			<select name="genero" ng-model="obra.genero" class="form-control" 
-					required ng-controller="GeneroController" 
 					ng-options="genero.nome as (genero.nome | uppercase) for genero in generos">
 				<option value="">Escolha um Gênero</option>
 			</select>
@@ -44,7 +42,6 @@
 		<div class="form-group">
 			<label>Editora:</label>
 			<select name="editora" ng-model="obra.editora" class="form-control" 
-					required ng-controller="EditoraController" 
 					ng-options="editora.nome as (editora.nome | uppercase) for editora in editoras">
 				<option value="">Escolha uma Editora</option>
 			</select>
@@ -53,11 +50,10 @@
 				Editora obrigatório
 			</span>
 		</div>
-
-		<button type="submit" href="/#/lista" class="btn btn-primary" ng-disabled="formulario.$invalid">
-			Salvar
+		<button type="submit" href="/#/obras" class="btn btn-success" ng-disabled="formulario.$invalid">
+			Cadastrar
 		</button>
-		<a href="/#/lista" class="btn btn-primary">Voltar</a>
+		<a href="/#/obras" class="btn btn-primary">Voltar</a>
 		<hr>
 	</div>
 </form>
