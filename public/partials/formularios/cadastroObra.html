@@ -1,10 +1,12 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
 	<div class="col-md-6">
 		<div class="form-group">
-			<label>Título</label>
-			<input ng-maxlength="30" name="titulo" class="form-control" ng-model="obra.titulo" required>  
+			<label>Título:</label>
+			<input ng-maxlength="100" name="titulo" class="form-control" ng-model="obra.titulo" required>  
 
 			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
 				class="form-control alert-danger">
@@ -12,23 +14,23 @@
 			</span>
 			<span ng-show="formulario.titulo.$error.maxlength" 
 				class="form-control alert-danger">
-				No máximo 30 caracteres!
+				No máximo 100 caracteres!
 			</span>
 		</div>
 		<div class="form-group">
-			<label>Autor</label>
+			<label>Autor:</label>
 			<select name="autor" ng-model="obra.autor" class="form-control" 
 					required ng-controller="AutorController" 
 					ng-options="autor.nome as (autor.nome | uppercase) for autor in autores">
 				<option value="">Escolha um Autor</option>
 			</select>
-			<span ng-show="formulario.$submitted && formulario.genero.$error.required" 
+			<span ng-show="formulario.$submitted && formulario.autor.$error.required" 
 				class="form-control alert-danger">
 				Autor obrigatório
 			</span>
 		</div>
 		<div class="form-group">
-			<label>Gênero</label>
+			<label>Gênero:</label>
 			<select name="genero" ng-model="obra.genero" class="form-control" 
 					required ng-controller="GeneroController" 
 					ng-options="genero.nome as (genero.nome | uppercase) for genero in generos">
@@ -40,13 +42,13 @@
 			</span>
 		</div>
 		<div class="form-group">
-			<label>Editora</label>
+			<label>Editora:</label>
 			<select name="editora" ng-model="obra.editora" class="form-control" 
 					required ng-controller="EditoraController" 
 					ng-options="editora.nome as (editora.nome | uppercase) for editora in editoras">
 				<option value="">Escolha uma Editora</option>
 			</select>
-			<span ng-show="formulario.$submitted && formulario.genero.$error.required" 
+			<span ng-show="formulario.$submitted && formulario.editora.$error.required" 
 				class="form-control alert-danger">
 				Editora obrigatório
 			</span>

@@ -1,0 +1,40 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome:</label>
+			<input ng-maxlength="100" name="nome" class="form-control" ng-model="autor.nome" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.nome.$error.required"
+				class="form-control alert-danger">
+				Nome obrigatório
+			</span>
+			<span ng-show="formulario.nome.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>E-mail:</label>
+			<input ng-maxlength="100" name="email" class="form-control" ng-model="autor.email" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.email.$error.required"
+				class="form-control alert-danger">
+				E-mail obrigatório
+			</span>
+			<span ng-show="formulario.email.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 15 caracteres!
+			</span>
+		</div>
+		<button type="submit" href="/#/obras" class="btn btn-primary" ng-disabled="formulario.$invalid">
+			Salvar
+		</button>
+		<a href="/#/obras" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+</form>
+</div>

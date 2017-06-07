@@ -1,0 +1,29 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+	<h3>Lista de Obras: </h3>
+<div class="panel-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Genero</th>
+          <th class="text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="obras in obras | filter: filtro" titulo="{{obras.titulo}}">
+          <td>{{obras.titulo}}</td>
+          <td>{{obras.autor}}</td>
+          <td>{{obras.genero}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" ng-click="editar(promocao.id)"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="excluir(promocao.id)"><span class="fa icon-trash"></span> </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
