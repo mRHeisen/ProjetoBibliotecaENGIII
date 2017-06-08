@@ -15,7 +15,7 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 //Carrega todas arquivos que tem em models/api/routes e passa como parametro a instancia app com express configurado
 // cwd diretorio pradao do consign
-//consign({cwd: process.cwd()+"/app"})// Heroku
+consign({cwd: process.cwd()+"/app"})// Heroku
 consign({ cwd : 'app'})// Local Host
 	.include('models')
 	.then('api')
