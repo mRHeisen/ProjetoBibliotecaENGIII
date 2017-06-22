@@ -3,16 +3,16 @@ var mongoose = require('mongoose');
 //Cria objeto javaScrpit em branco
 var api = {};
 //Relaciona o model feito em models/genero para var model
-var model = mongoose.model('Editora');
+var model = mongoose.model('Operador');
 
-//Retorna uma lista de editoras
+//Retorna uma lista de autores
 api.lista = function(req, res){
 	//Find passa um obect vazil e usa promess para obter resultado
 	model
 		.find({})
-		.then(function(editora){
-			//Manda a lista de generos se não houver erro em json
-			res.json(editora);
+		.then(function(operador){
+			//Manda a lista de operador se não houver erro em json
+			res.json(operador);
 		}, function(error){
 			//Mostra o erro no console
 			console.log(error);
@@ -22,15 +22,15 @@ api.lista = function(req, res){
 
 };
 api.adiciona = function(req, res){
-	//editora recebida pelo req.body
-	var editora = req.body
-	console.log(editora);
-	//Usa funçao do mongoose (create) para criar editora, espera uma editora recebida pelo req.body
+	//operador recebida pelo req.body
+	var operador = req.body
+	console.log(operador);
+	//Usa funçao do mongoose (create) para criar operador, espera uma operador recebida pelo req.body
 	model
-		.create(editora)
-		.then(function(editora) {
-			//Manda a editora criado com o com id do MongoDB
-			res.json(editora)
+		.create(operador)
+		.then(function(operador) {
+			//Manda a operador criado com o com id do MongoDB
+			res.json(operador)
 		}, function(error){
 			//Mostra o erro no console
 			console.log(error);
@@ -58,11 +58,11 @@ api.buscaPorId = function(req, res){
 	//Usa funçao do mongoose(findById) para procura pelo id que é passado em req.params.id pega o id
 	model
 		.findById(req.params.id)
-		.then(function(editora){
-			console.log(editora);
-			//Se editora nao existis executa if e termina o fluxo e vai para função de error
-			if(!editora) throw Error('editora não encontrada');
-			res.json(editora);
+		.then(function(operador){
+			console.log(operador);
+			//Se operador nao existis executa if e termina o fluxo e vai para função de error
+			if(!operador) throw Error('operador não encontrada');
+			res.json(operador);
 		}, function(error){
 			//Mostra o erro no console
 			console.log(error);
@@ -74,13 +74,13 @@ api.buscaPorId = function(req, res){
 api.atualiza = function(req, res){
 	//Usa funçao do mongoose (findByIdAndUpdate) para procura pelo id que for passa e atulizar o mesmo documento no
 	//MongoDB
-	editora = req.body;
-	console.log(editora);
+	operador = req.body;
+	console.log(operador);
 	model
-		.findByIdAndUpdate(req.params.id, editora)
-		.then(function(editora){ 
-			//Manda a editora atualizada
-			res.json(editora);
+		.findByIdAndUpdate(req.params.id, operador)
+		.then(function(operador){ 
+			//Manda a operador atualizada
+			res.json(operador);
 		}, function(error){
 			//Mostra o erro no console
 			console.log(error);

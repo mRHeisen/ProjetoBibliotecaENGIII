@@ -9,4 +9,6 @@ module.exports = function(app){
     //Define o indentificador da rota em um unico lugar
      app.route('/v1/autor/:id')
      	.delete(api.removePorId) //Remove pelo id da historias
+     	.get(api.buscaPorId) //Buscar autor pelo id
+        .put(api.atualiza) //Atuliza autor pelo id
 };

@@ -1,7 +1,16 @@
-angular.module('biblioteca').controller('GeneroController', function($scope, $http, cadastroDeGenero, recursoGenero) {
+angular.module('biblioteca').controller('GeneroController', function($scope, $http, $routeParams, cadastroDeGenero, recursoGenero) {
 		
 	$scope.mensagem = '';
 	$scope.genero = {};
+
+	if($routeParams.generoId) {
+				recursoGenero.get({generoId: $routeParams.generoId}, function(genero) {
+				$scope.genero = genero;
+				}, function(erro) {
+				console.log(erro);
+				$scope.mensagem = 'Não foi possível obter o genero'
+				});
+		};
 
 	cadastrar = function(genero) {
 		cadastroDeGenero.cadastrar(genero)

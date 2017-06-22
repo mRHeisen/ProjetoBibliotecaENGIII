@@ -1,0 +1,33 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+
+<div class="panel-body table-responsive">
+		<h3>Lista de Editoras: </h3> 
+    <a class="btn btn-primary" href="#/neweditora">Nova Editora</a>
+    <br></br>
+    <input class="form-control col-md-3" placeholder="Filtro:" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Endereço</th>
+          <th class="text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="editora in editoras | filter: filtro" titulo="{{editora.nome}}">
+          <td>{{editora.nome}}</td>
+          <td>{{editora.email}}</td>
+          <td>{{editora.endereco}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" href="/#/editora/edit/{{editora._id}}"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="remover(editora)"><span class="fa icon-trash"></span> </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

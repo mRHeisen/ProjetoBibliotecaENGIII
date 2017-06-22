@@ -1,0 +1,79 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome:</label>
+			<input ng-maxlength="100" name="nome" class="form-control" ng-model="operador.nome" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.nome.$error.required"
+				class="form-control alert-danger">
+				Nome obrigatório
+			</span>
+			<span ng-show="formulario.nome.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Email:</label>
+			<input ng-maxlength="100" name="email" class="form-control" ng-model="operador.email" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.email.$error.required"
+				class="form-control alert-danger">
+				Email obrigatório
+			</span>
+			<span ng-show="formulario.email.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Login:</label>
+			<input ng-maxlength="100" name="login" class="form-control" ng-model="operador.login" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.login.$error.required"
+				class="form-control alert-danger">
+				Login obrigatório
+			</span>
+			<span ng-show="formulario.login.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Senha:</label>
+			<input type="password" ng-maxlength="100" name="senha" class="form-control" ng-model="operador.senha" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.senha.$error.required"
+				class="form-control alert-danger">
+				Senha obrigatório
+			</span>
+			<span ng-show="formulario.senha.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Tipo:</label>
+			<input ng-maxlength="100" name="tipo" class="form-control" ng-model="operador.tipo" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.tipo.$error.required"
+				class="form-control alert-danger">
+				Tipo obrigatório
+			</span>
+			<span ng-show="formulario.tipo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		</div>
+		<button type="submit" href="/#/operadores" class="btn btn-success" ng-disabled="formulario.$invalid">
+			Cadastrar
+		</button>
+		<a href="/#/operadores" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+</form>
+</div>

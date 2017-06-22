@@ -11,14 +11,6 @@ angular.module('biblioteca')
 			});
 		$scope.mensagem = '';
 
-		if($routeParams.obraId) {
-				recursoObra.get({obraId: $routeParams.obraId}, function(obra) {
-				}, function(erro) {
-				console.log(erro);
-				$scope.mensagem = 'Não foi possível obter a obra'
-				});
-		}
-
 		$scope.remover = function(obra) {
 		var confirmacao = confirm("Excluir a Obra: "+obra.titulo);
 		if(confirmacao === true){

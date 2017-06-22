@@ -1,0 +1,31 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+
+<div class="panel-body table-responsive">
+		<h3>Lista de Autores: </h3> 
+    <a class="btn btn-primary" href="#/newautor">Novo Autor</a>
+    <br></br>
+    <input class="form-control col-md-3" placeholder="Filtro:" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th class="text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="autor in autores | filter: filtro" titulo="{{autor.nome}}">
+          <td>{{autor.nome}}</td>
+          <td>{{autor.email}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" href="/#/autore/edit/{{autor._id}}"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="remover(autor)"><span class="fa icon-trash"></span> </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

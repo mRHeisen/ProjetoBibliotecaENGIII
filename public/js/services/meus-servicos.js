@@ -43,6 +43,17 @@ angular.module('meusServicos', ['ngResource'])
 			}
 		});
 	})
+	.factory('recursoOperador', function($resource) {
+
+		return $resource('/v1/operador/:operadorId', null, {
+			'update' : { 
+				method: 'PUT'
+			},
+			'patch' : { 
+				method: 'PATCH'
+			}
+		});
+	})
 	.factory("cadastroDeGenero", function(recursoGenero, $q) {
 		var service = {};
 		service.cadastrar = function(genero) {
@@ -176,6 +187,41 @@ angular.module('meusServicos', ['ngResource'])
 						console.log(erro);
 						reject({
 							mensagem: 'Não foi possível incluir a obra ' + obra.titulo
+						});
+					});
+				}
+			});
+		};
+		return service;
+    })
+    .factory("cadastroDeOperador", function(recursoOperador, $q) {
+		var service = {};
+		service.cadastrar = function(operador) {
+			return $q(function(resolve, reject) {
+
+				if(operador._id) {
+					recursoOperador.update({operadorId: operador._id}, operador, function() {
+						resolve({
+							mensagem: 'Operador ' + operador.nome + ' atualizada com sucesso',
+							inclusao: false
+						});
+					}, function(erro) {
+						console.log(erro);
+						reject({
+							mensagem: 'Não foi possível atualizar o operador ' + operador.nome
+						});
+					});
+
+				} else {;
+					recursoOperador.save(operador, function() {
+						resolve({
+							mensagem: 'Operador ' + operador.nome + ' incluído com sucesso',
+							inclusao: true
+						});
+					}, function(erro) {
+						console.log(erro);
+						reject({
+							mensagem: 'Não foi possível incluir o operador ' + operador.nome
 						});
 					});
 				}

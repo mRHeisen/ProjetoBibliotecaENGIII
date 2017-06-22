@@ -21,7 +21,27 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 			controller: 'EditoraController'
 		});
 
+		$routeProvider.when('/editoras', {
+			templateUrl: 'partials/views/ListaEditora.html',
+			controller: 'ListaEditorasController'
+		});
+
+		$routeProvider.when('/editora/edit/:editoraId', {
+			templateUrl: 'partials/formularios/cadastroEditora.html',
+			controller: 'EditoraController'
+		});
+
 		$routeProvider.when('/newautor', {
+			templateUrl: 'partials/formularios/cadastroAutor.html',
+			controller: 'AutorController'
+		});
+
+		$routeProvider.when('/autores', {
+			templateUrl: 'partials/views/ListaAutor.html',
+			controller: 'ListaAutoresController'
+		});
+
+		$routeProvider.when('/autore/edit/:autorId', {
 			templateUrl: 'partials/formularios/cadastroAutor.html',
 			controller: 'AutorController'
 		});
@@ -29,6 +49,31 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 		$routeProvider.when('/newgenero', {
 			templateUrl: 'partials/formularios/cadastroGenero.html',
 			controller: 'GeneroController'
+		});
+
+		$routeProvider.when('/generos', {
+			templateUrl: 'partials/views/ListaGenero.html',
+			controller: 'ListaGenerosController'
+		});
+
+		$routeProvider.when('/genero/edit/:generoId', {
+			templateUrl: 'partials/formularios/cadastroGenero.html',
+			controller: 'GeneroController'
+		});
+
+		$routeProvider.when('/newoperador', {
+			templateUrl: 'partials/formularios/cadastroOperador.html',
+			controller: 'OperadorController'
+		});
+
+		$routeProvider.when('/operadores', {
+			templateUrl: 'partials/views/ListaOperador.html',
+			controller: 'ListaOperadoresController'
+		});
+
+		$routeProvider.when('/operador/edit/:operadorId', {
+			templateUrl: 'partials/formularios/cadastroOperador.html',
+			controller: 'OperadorController'
 		});
 
 		$routeProvider.otherwise({redirectTo: '/obras'});

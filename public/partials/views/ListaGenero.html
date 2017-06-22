@@ -1,0 +1,29 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+
+<div class="panel-body table-responsive">
+		<h3>Lista de Gêneros: </h3> 
+    <a class="btn btn-primary" href="#/newgenero">Novo Gênero</a>
+    <br></br>
+    <input class="form-control col-md-3" placeholder="Filtro:" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th class="text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="genero in generos | filter: filtro" titulo="{{genero.nome}}">
+          <td>{{genero.nome}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" href="/#/genero/edit/{{genero._id}}"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="remover(genero)"><span class="fa icon-trash"></span> </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

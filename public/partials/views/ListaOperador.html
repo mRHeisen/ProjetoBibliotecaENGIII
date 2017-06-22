@@ -1,0 +1,33 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+
+<div class="panel-body table-responsive">
+		<h3>Lista de Operadores: </h3> 
+    <a class="btn btn-primary" href="#/newoperador">Novo Operador</a>
+    <br></br>
+    <input class="form-control col-md-3" placeholder="Filtro:" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Tipo</th>
+          <th class="text-right">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="operador in operadores | filter: filtro" titulo="{{operador.nome}}">
+          <td>{{operador.nome}}</td>
+          <td>{{operador.email}}</td>
+          <td>{{operador.tipo}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" href="/#/operador/edit/{{operador._id}}"><span class="fa icon-edit"></span> </a>
+              <a class="btn btn-danger btn-md" ng-click="remover(operador)"><span class="fa icon-trash"></span> </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
