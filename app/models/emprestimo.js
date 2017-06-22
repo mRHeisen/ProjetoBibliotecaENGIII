@@ -2,27 +2,28 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema(
 {
-	nome : {
+	usuario : {
+		type: Object,
+		require: true
+	},
+	diasDeEmprestimo : {
 		type: String,
 		require: true
 	},
-	cpf : {
+	dataEntrega : {
 		type: String,
 		require: true
 	},
-	telefone : {
-		type: String,
+	obras : [
+	],
+	oeprador : {
+		type: Object,
 		require: true
 	},
-	email : {
-		type: String,
-		require: true
-	},
-	endereco : {
-		type: String,
+	situacao : {
+		type: Boolean,
 		require: true
 	}
-	
 });
 
-mongoose.model('Usuario', schema);
+mongoose.model('Emprestimo', schema);
