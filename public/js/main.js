@@ -77,7 +77,7 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 		});
 
 		$routeProvider.when('/newemprestimo', {
-			templateUrl: 'partials/formularios/cadastroEmprestitmo.html',
+			templateUrl: 'partials/formularios/cadastroEmprestimo.html',
 			controller: 'EmprestimoController'
 		});
 
