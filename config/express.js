@@ -8,8 +8,6 @@ var bodyParser = require('body-parser');
 var app = express();
 // Usa o middlewares que ja vem no express Static tudo que tiver na pasta indicada sera acessivel pelo navegador
 //variavel de ambiente do express
-app.set('secret', 'homemavestruz');
-
 app.use(express.static('./public'));
 // Usa o middlewares bodyParser para popular o req.body
 app.use(bodyParser.json());
