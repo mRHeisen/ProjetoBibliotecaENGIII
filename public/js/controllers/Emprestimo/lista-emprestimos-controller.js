@@ -9,5 +9,4 @@ angular.module('biblioteca')
 			console.log(erro);
 			});
 		$scope.mensagem = '';
-
 	});
