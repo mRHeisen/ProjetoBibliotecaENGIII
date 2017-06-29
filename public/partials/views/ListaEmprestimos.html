@@ -1,0 +1,31 @@
+<div ng-include="'/partials/menus/menuOperador.html'"></div>
+<div style="margin-left: 6cm;">
+<div class="panel-body table-responsive">
+		<h3>Lista de Emprestimos: </h3> 
+    <a class="btn btn-primary" href="#/newemprestimo">Novo Emprestimo</a>
+    <br></br>
+    <input class="form-control col-md-3" placeholder="Filtro:" ng-model="filtro" ng-model-options="{ debounce: 500 }">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data Entrega</th>
+          <th>Entregue</th>
+          <th class="text-right">Abrir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="emprestimo in emprestimos | filter: filtro" titulo="{{emprestimo._id}}">
+          <td>{{emprestimo._id}}</td>
+          <td>{{emprestimo.dataEntrega }}</td>
+          <td>{{emprestimo.situacao}}</td>
+          <td>
+            <div class="btn-group pull-right nowrap">
+              <a class="btn btn-primary btn-md" href="/#/emprestimo/edit/{{emprestimo._id}}"><span class="fa fa-eye"></span> </a>
+           </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

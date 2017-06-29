@@ -80,6 +80,14 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 			templateUrl: 'partials/formularios/cadastroEmprestimo.html',
 			controller: 'EmprestimoController'
 		});
+		$routeProvider.when('/emprestimos', {
+			templateUrl: 'partials/views/ListaEmprestimos.html',
+			controller: 'ListaEmprestimosController'
+		});
+		$routeProvider.when('/emprestimo/edit/:emprestimoId', {
+			templateUrl: 'partials/views/vizualizaEmprestimo.html',
+			controller: 'EmprestimoController'
+		});
 
 
 		$routeProvider.otherwise({redirectTo: '/obras'});

@@ -248,7 +248,7 @@ angular.module('meusServicos', ['ngResource'])
 				if(emprestimo._id) {
 					recursoEmprestimo.update({emprestimoId: emprestimo._id}, emprestimo, function() {
 						resolve({
-							mensagem: 'Emprestimo ' + emprestimo.cod + ' atualizada com sucesso',
+							mensagem: 'Emprestimo realizado com sucesso',
 							inclusao: false
 						});
 					}, function(erro) {
@@ -261,7 +261,7 @@ angular.module('meusServicos', ['ngResource'])
 				} else {;
 					recursoEmprestimo.save(emprestimo, function() {
 						resolve({
-							mensagem: 'Emprestimo ' + emprestimo.cod + ' incluído com sucesso',
+							mensagem: 'Emprestimo incluído com sucesso',
 							inclusao: true
 						});
 					}, function(erro) {

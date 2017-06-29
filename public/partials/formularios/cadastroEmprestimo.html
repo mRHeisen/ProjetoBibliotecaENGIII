@@ -10,7 +10,7 @@
 
 			<span ng-show = "formulario.$submitted && formulario.usuario.$error.required"
 				class="form-control alert-danger">
-				Título obrigatório
+				CPF obrigatório
 			</span>
 			<span ng-show="formulario.usuario.$error.maxlength" 
 				class="form-control alert-danger">
@@ -19,46 +19,56 @@
 		</div>
 		<div class="form-group">
 			<label>Data retirada</label>
-			<select name="diasDeEmprestimo" ng-model="emprestimo.diasDeEmprestimo" class="form-control"  
-					ng-options="autor.nome as (autor.nome | uppercase) for autor in autores">
-				<option value="">Escolha um Autor</option>
-			</select>
-			<span ng-show="formulario.$submitted && formulario.diasDeEmprestimo.$error.required" 
+			<input ng-maxlength="100" name="diasDeEmprestimo" class="form-control" ng-model="emprestimo.diasDeEmprestimo" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.diasDeEmprestimo.$error.required"
 				class="form-control alert-danger">
-				Autor obrigatório
+				Data obrigatória
+			</span>
+			<span ng-show="formulario.diasDeEmprestimo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
 			</span>
 		</div>
 		<div class="form-group">
 			<label>Data Entrega:</label>
-			<select name="dataEntrega" ng-model="emprestimo.dataEntrega" class="form-control" 
-					ng-options="genero.nome as (genero.nome | uppercase) for genero in generos">
-				<option value="">Escolha um Gênero</option>
-			</select>
-			<span ng-show="formulario.$submitted && formulario.dataEntrega.$error.required" 
+			<input ng-maxlength="100" name="dataEntrega" class="form-control" ng-model="emprestimo.dataEntrega" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.dataEntrega.$error.required"
 				class="form-control alert-danger">
-				Genero obrigatório
+				Data obrigatória
+			</span>
+			<span ng-show="formulario.dataEntrega.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 100 caracteres!
 			</span>
 		</div>
 		<div class="form-group">
-			<label>Obras:</label>
-			<select name="obras" ng-model="emprestimo.obras" class="form-control" 
-					ng-options="editora.nome as (editora.nome | uppercase) for editora in editoras">
-				<option value="">Escolha uma Editora</option>
+			<label>Livro:</label>
+			<select name="obra" ng-model="emprestimo.obras" class="form-control">
+			 	<option ng-repeat="obra in obras"
+          			value="{{obra.titulo}}"
+          			title="Custom title: {{obra.titulo}} [{{obra.genero}}]">
+       				{{obra.titulo}}
+  				</option>
 			</select>
 			<span ng-show="formulario.$submitted && formulario.obras.$error.required" 
 				class="form-control alert-danger">
-				Editora obrigatório
+				Livro obrigatório
 			</span>
 		</div>
 		<div class="form-group">
 			<label>Operador responsavel:</label>
-			<select name="oeprador" ng-model="emprestimo.oeprador" class="form-control" 
-					ng-options="editora.nome as (editora.nome | uppercase) for editora in editoras">
-				<option value="">Escolha uma Editora</option>
+			<select name="operador" ng-model="emprestimo.operador" class="form-control">
+				  <option ng-repeat="operador in operadores"
+          			value="{{operador.nome}}"
+          			title="Custom title: {{operador.nome}} [{{operador.login}}]">
+       				{{operador.nome}}
+  				</option>
 			</select>
 			<span ng-show="formulario.$submitted && formulario.editora.$error.required" 
 				class="form-control alert-danger">
-				Editora obrigatório
+				Operador obrigatório
 			</span>
 		</div>
 		<button type="submit" href="/#/obras" class="btn btn-success" ng-disabled="formulario.$invalid">
