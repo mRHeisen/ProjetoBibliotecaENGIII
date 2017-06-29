@@ -89,7 +89,6 @@ angular.module('biblioteca', ['ngAnimate', 'ngRoute', 'ngResource', 'meusServico
 			controller: 'EmprestimoController'
 		});
 
-
 		$routeProvider.otherwise({redirectTo: '/obras'});
 
 	});
