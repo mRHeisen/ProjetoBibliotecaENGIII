@@ -54,6 +54,17 @@ angular.module('meusServicos', ['ngResource'])
 			}
 		});
 	})
+	.factory('recursoEmprestimo', function($resource) {
+
+		return $resource('/v1/emprestimo/:emprestimoId', null, {
+			'update' : { 
+				method: 'PUT'
+			},
+			'patch' : { 
+				method: 'PATCH'
+			}
+		});
+	})
 	.factory("cadastroDeGenero", function(recursoGenero, $q) {
 		var service = {};
 		service.cadastrar = function(genero) {
@@ -222,6 +233,41 @@ angular.module('meusServicos', ['ngResource'])
 						console.log(erro);
 						reject({
 							mensagem: 'Não foi possível incluir o operador ' + operador.nome
+						});
+					});
+				}
+			});
+		};
+		return service;
+    })
+    .factory("cadastroDeEmprestimo", function(recursoEmprestimo, $q) {
+		var service = {};
+		service.cadastrar = function(emprestimo) {
+			return $q(function(resolve, reject) {
+
+				if(emprestimo._id) {
+					recursoEmprestimo.update({emprestimoId: emprestimo._id}, emprestimo, function() {
+						resolve({
+							mensagem: 'Emprestimo realizado com sucesso',
+							inclusao: false
+						});
+					}, function(erro) {
+						console.log(erro);
+						reject({
+							mensagem: 'Não foi possível atualizar o operador ' + emprestimo.cod
+						});
+					});
+
+				} else {;
+					recursoEmprestimo.save(emprestimo, function() {
+						resolve({
+							mensagem: 'Emprestimo incluído com sucesso',
+							inclusao: true
+						});
+					}, function(erro) {
+						console.log(erro);
+						reject({
+							mensagem: 'Não foi possível incluir o emprestimo ' + emprestimo.cod
 						});
 					});
 				}
